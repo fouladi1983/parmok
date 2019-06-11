@@ -1,0 +1,31 @@
+.parmok{
+    border-radius: 3px;
+    color: #fff;
+    border: 1px #99ff99 solid;
+    margin-left: 20%;
+    margin-top: 7%;
+    padding: 0 7px 0 7px;
+    background-color: #333333;
+}
+
+.aboutText{
+    padding: 0 7px 7px 7px;
+}
+
+.author{
+    border-radius: 3px;
+    color: #fff;
+    border: 1px #99ff99 solid;
+    margin: 5% 10% auto;
+    padding: 0 7px 0 7px;
+    background-color: #333333;
+}
+
+@media screen and (max-width: 800px){
+    .parmok{
+        margin: 12% auto;
+    }
+    .author{
+        margin: 12% auto;
+    }
+}

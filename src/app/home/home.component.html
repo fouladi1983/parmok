@@ -1,0 +1,98 @@
+<div [class]="homeClass">
+    <div class="leftSection">
+        <mat-card class="brent">
+            <h4>نفت برنت</h4>
+            <p *ngFor="let bItem of brentPrice; first as gf"><span *ngIf="gf == true">قیمت: {{bItem.price}}$</span></p>
+        </mat-card>
+        <mat-card class="gold">
+            <h4>طلا جهانی</h4>
+            <p *ngFor="let gItem of goldPrice; first as gf"><span *ngIf="gf == true">قیمت: {{gItem.price}}$</span></p>
+        </mat-card>
+        <mat-card class="opec">
+            <h4>نفت خام</h4>
+            <p *ngFor="let cItem of crudeOilPrice; first as cf"><span *ngIf="cf == true">قیمت: {{cItem.price}}$</span></p>
+        </mat-card>
+    </div>
+    <div class="rightSection">
+    <span style="float:right">انرژی</span>
+        <table mat-table [dataSource]="energyDataSource" class="mat-elevation-z8">
+            <ng-container matColumnDef="symbol">
+                <th mat-header-cell *matHeaderCellDef><b>نام کالا</b></th>
+                <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+            </ng-container>
+                      
+            <ng-container matColumnDef="last">
+                <th mat-header-cell *matHeaderCellDef><b>آخرین قیمت</b></th>
+                <td mat-cell *matCellDef="let element"> {{element.last}} </td>
+            </ng-container>
+            <ng-container matColumnDef="high">
+                <th mat-header-cell *matHeaderCellDef><b>بیشترین قیمت</b></th>
+                <td mat-cell *matCellDef="let element"> {{element.high}} </td>
+            </ng-container>
+            <ng-container matColumnDef="low">
+                <th mat-header-cell *matHeaderCellDef><b>کمترین قیمت</b></th>
+                <td mat-cell *matCellDef="let element"> {{element.low}} </td>
+            </ng-container>
+            <ng-container matColumnDef="change">
+                <th mat-header-cell *matHeaderCellDef><b>درصد تغییر</b></th>
+                <td mat-cell *matCellDef="let element"> {{element.change}} </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns" class="headers"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    <span style="float:right">فلزات</span>
+        <table mat-table [dataSource]="metalDataSource" class="mat-elevation-z8">
+                <ng-container matColumnDef="symbol">
+                    <th mat-header-cell *matHeaderCellDef><b>نام کالا</b></th>
+                    <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+                </ng-container>
+                          
+                <ng-container matColumnDef="last">
+                    <th mat-header-cell *matHeaderCellDef><b>آخرین قیمت</b></th>
+                    <td mat-cell *matCellDef="let element"> {{element.last}} </td>
+                </ng-container>
+                <ng-container matColumnDef="high">
+                    <th mat-header-cell *matHeaderCellDef><b>بیشترین قیمت</b></th>
+                    <td mat-cell *matCellDef="let element"> {{element.high}} </td>
+                </ng-container>
+                <ng-container matColumnDef="low">
+                    <th mat-header-cell *matHeaderCellDef><b>کمترین قیمت</b></th>
+                    <td mat-cell *matCellDef="let element"> {{element.low}} </td>
+                </ng-container>
+                <ng-container matColumnDef="change">
+                    <th mat-header-cell *matHeaderCellDef><b>درصد تغییر</b></th>
+                    <td mat-cell *matCellDef="let element"> {{element.change}} </td>
+                </ng-container>
+                <tr mat-header-row *matHeaderRowDef="displayedColumns" class="headers"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="rows"></tr>
+            </table>
+            <span style="float:right">کشاورزی</span>
+            <table mat-table [dataSource]="agriculturalDataSource" class="mat-elevation-z8">
+                    <ng-container matColumnDef="symbol">
+                        <th mat-header-cell *matHeaderCellDef><b>نام کالا</b></th>
+                        <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+                    </ng-container>
+                              
+                    <ng-container matColumnDef="last">
+                        <th mat-header-cell *matHeaderCellDef><b>آخرین قیمت</b></th>
+                        <td mat-cell *matCellDef="let element"> {{element.last}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="high">
+                        <th mat-header-cell *matHeaderCellDef><b>بیشترین قمیت</b></th>
+                        <td mat-cell *matCellDef="let element"> {{element.high}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="low">
+                        <th mat-header-cell *matHeaderCellDef><b>کمترین قیمت</b></th>
+                        <td mat-cell *matCellDef="let element"> {{element.low}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="change">
+                        <th mat-header-cell *matHeaderCellDef><b>درصد تغییر</b></th>
+                        <td mat-cell *matCellDef="let element"> {{element.change}} </td>
+                    </ng-container>
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns" class="headers"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+    </div>
+</div>
+
+<mat-spinner *ngIf="showSpinner" color="accent"></mat-spinner>

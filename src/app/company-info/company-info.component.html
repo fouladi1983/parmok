@@ -1,0 +1,70 @@
+<form>
+    <mat-form-field loatLabel="never" appearance="outline" color="accent" class="searchInpt">
+      <mat-label>جستجوی شرکت</mat-label>
+      <input type="text" matInput [matAutocomplete]="auto" [formControl]="myControl">
+      <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+        <mat-option *ngFor="let item of filteredCompanies | async" [value]="item" (onSelectionChange) = "optionChange(item.symbol)">
+          {{item.symbol + ' / ' + item.companyName}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+</form>
+<mat-divider></mat-divider>
+<div class="companyInfoPanel">
+  <div>
+    <p>
+        <b>نشانی شرکت یا کارخانه:</b>&nbsp;
+        <span *ngFor="let item of companyAddress">
+          <span *ngIf="item.contactType === 'نشانی شرکت یا کارخانه'">{{item.contactInfo}}&nbsp;|&nbsp;</span>
+        </span>
+    </p>
+    <p>
+       <b>نشانی دفتر:</b>&nbsp;
+        <span *ngFor="let item of companyAddress">
+          <span *ngIf="item.contactType === 'نشانی دفتر'">{{item.contactInfo}}&nbsp;|&nbsp;</span>
+        </span>
+    </p>
+    <p>
+        <b>نشانی امور سهام:</b>&nbsp;
+        <span *ngFor="let item of companyAddress">
+          <span *ngIf="item.contactType === 'نشانی امور سهام'">{{item.contactInfo}}&nbsp;|&nbsp;</span>
+        </span>
+    </p>
+    <p>
+        <b>وب سایت:</b>&nbsp;
+        <span *ngFor="let item of companyAddress">
+          <span *ngIf="item.contactType === 'وب سایت'">{{item.contactInfo}}&nbsp;|&nbsp;</span>
+        </span>
+    </p>
+    <p>
+       <b>ایمیل:</b>&nbsp;
+        <span *ngFor="let item of companyAddress">
+          <span *ngIf="item.contactType === 'ایمیل'">{{item.contactInfo}}&nbsp;|&nbsp;</span>
+        </span>
+    </p>
+    <p>
+        <b>تماس شرکت:</b>&nbsp;
+         <span *ngFor="let item of companyPhoneInfo">
+           <span *ngIf="item.PhoneType === 'شرکت' || item.PhoneType === 'کارخانه' || item.PhoneType === 'تلفن' || item.PhoneType === 'تلفنخانه' || item.PhoneType === 'مرکز' || item.PhoneType === 'گویا'">{{item.PhoneInfo}}&nbsp;|&nbsp;</span>
+         </span>
+     </p>
+     <p>
+        <b>تماس دفتر:</b>&nbsp;
+         <span *ngFor="let item of companyPhoneInfo" style="direction: ltr !important;">
+           <span *ngIf="item.PhoneType === 'دفتر' || item.PhoneType === 'دفتر تهران'">{{item.PhoneInfo}}&nbsp;|&nbsp;</span>
+         </span>
+     </p>
+     <p>
+        <b>تماس امور سهام:</b>&nbsp;
+         <span *ngFor="let item of companyPhoneInfo">
+           <span *ngIf="item.PhoneType === 'امور سهام' || item.PhoneType === 'واحد بورس' || item.PhoneType === 'تلفکس امور سهام'">{{item.PhoneInfo}}&nbsp;|&nbsp;</span>
+         </span>
+     </p>
+     <p>
+        <b>فکس:</b>&nbsp;
+         <span *ngFor="let item of companyPhoneInfo">
+           <span *ngIf="item.PhoneType === 'فکس' || item.PhoneType === 'فکس دفتر' || item.PhoneType === 'فکس شرکت' || item.PhoneType === 'فکس کارخانه' || item.PhoneType === 'فکس امور سهام' || item.PhoneType === 'تلفکس'">{{item.PhoneInfo}}&nbsp;|&nbsp;</span>
+         </span>
+     </p>
+  </div>
+</div>

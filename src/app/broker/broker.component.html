@@ -1,0 +1,23 @@
+
+<form>
+    <mat-form-field loatLabel="never" appearance="outline" color="accent" class="searchInpt">
+        <mat-label>جستجوی کارگزای</mat-label>
+      <input type="text"  matInput [formControl]="myControl" [matAutocomplete]="auto">
+      <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+        <mat-option *ngFor="let broker of filteredOptions | async" [value]="broker" (onSelectionChange)="optionChange(broker.broker)">
+          {{broker.broker}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </form>
+  <div><b>توجه&nbsp;:</b>&nbsp;آمار ارائه شده بر اساس آخرین اطلاعات تجمیعی منتشر شده بوده و در نتیجه در سال 98 مقادیر کمتر از یک سال مالی نشان داده می شود</div>
+  <div class="canvas" *ngIf="brokerChose">
+    <canvas
+        baseChart
+        [chartType]="'line'"
+        [datasets]="chartData"
+        [labels]="chartLabels"
+        [options]="chartOptions"
+        [legend]="true">
+    </canvas>
+</div>

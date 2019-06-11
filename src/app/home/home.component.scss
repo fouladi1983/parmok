@@ -1,0 +1,75 @@
+.row{
+    text-align: center;
+    margin-top: 5%;
+}
+mat-card{
+    margin: 2% auto;
+    width: 50%;
+}
+
+mat-spinner{
+    position: absolute;
+    left: 50%;
+    margin-left: -4em;
+    top: 40%;
+}
+
+.brent{
+    background-color: #009933;
+    color: lightcyan;
+    margin-top:15%;
+    margin-bottom:10%;
+    text-shadow: 2px 2px 5px rgb(0, 0, 0);
+}
+.gold{
+    background-color: #ffffcc;
+    color: #331a00;
+    margin-bottom:10%;
+    text-shadow: 2px 2px 5px #1a0d00;
+}
+.opec{
+    background-color: #006699;
+    color: #fff;
+    margin-bottom:10%;
+    text-shadow: 2px 2px 5px rgb(0, 0, 0);
+}
+
+table{
+    margin: 2% auto;
+    width: 100%;
+    text-align: right;
+}
+table .headers{
+    background-color: chocolate;
+}
+
+.rightSection{
+    width: 50%;
+    float: right;
+    height: 100%;
+    text-align: center;
+    margin-top: 2%;
+    margin-bottom: 3%; 
+}
+
+.homeWrapper{
+    filter: blur(1.5px);
+    -webkit-filter: blur(1.5px);
+}
+
+.leftSection{
+    width: 50%;
+    float: left;
+    height: 100%;
+    text-align: center;
+}
+
+@media screen and (max-width: 600px){
+    .leftSection{
+        width: 100%;
+    }
+    .rightSection{
+        width: 100%;
+        margin-bottom: 12%;
+    }
+}

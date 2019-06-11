@@ -1,0 +1,19 @@
+.contact-panel{
+    margin: 7% auto;
+    width: 50%;
+    border-radius: 5px;
+}
+
+.input{
+    width: 100%;
+}
+
+.g-recaptcha{
+    margin-bottom: 10px;
+}
+
+@media screen and (max-width: 600px){
+    .contact-panel{
+        width: 100%;
+    }
+}

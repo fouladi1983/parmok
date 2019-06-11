@@ -1,0 +1,23 @@
+<div class="contact-panel">
+    <form class="example-form" #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm);" novalidate>
+        <small [hidden]="emailInput.untouched || emailInput.valid">ایمیل باید وارد شود</small>
+        <mat-form-field class="input" loatLabel="never" appearance="outline" color="accent">
+          <mat-label>ایمیل</mat-label>
+          <input matInput [(ngModel)]="email" name="email" #emailInput="ngModel" required [class.is-invalid]="emailInput.invalid && emailInput.touched"
+            pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$">
+        </mat-form-field>
+        <div *ngIf="messageInput.errors && (messageInput.valid || messageInput.touched)">
+          <small *ngIf="messageInput.errors.required">متن پیام باید وارد شود</small>
+          <small *ngIf="messageInput.errors.minlength">متن پیام باید حداقل شامل 30 کاراکتر باشد</small>
+        </div>
+        <mat-form-field class="input" loatLabel="never" appearance="outline" color="accent">
+          <mat-label>متن پیام</mat-label>
+          <textarea matInput rows="20" [(ngModel)]="message" #messageInput="ngModel" name="message" required [class.is-invalid]="messageInput.invalid && messageInput.touched"
+            minlength="30"></textarea>
+        </mat-form-field>
+        <div class="g-recaptcha">
+          <re-captcha required (resolved)="resolved($event)" ngModel name="captcha"></re-captcha>
+        </div>
+        <button [disabled]="contactForm.form.invalid" mat-raised-button color="primary">ارسال</button>
+      </form>
+</div>

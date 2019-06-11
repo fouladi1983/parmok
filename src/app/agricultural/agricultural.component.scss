@@ -1,0 +1,19 @@
+table {
+    width: 80%;
+    margin: 5% auto;
+  }
+  table .headers{
+    background-color: chocolate;
+}
+
+.loading{
+  filter: blur(1.5px);
+  -webkit-filter: blur(1.5px);
+}
+
+mat-spinner{
+  position: absolute;
+  left: 50%;
+  margin-left: -4em;
+  top: 40%;
+}

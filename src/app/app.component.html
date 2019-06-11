@@ -1,0 +1,92 @@
+<mat-sidenav-container>
+  <mat-sidenav [(opened)] = "opened">
+    <mat-accordion>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+              <b>قیمتهای جهانی</b>
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-divider></mat-divider>
+        <mat-list role="list">
+          <a routerLink="/precious-metal">
+            <mat-list-item>فلزات گرانبها</mat-list-item>
+          </a>
+          <a routerLink="/base-metal">
+            <mat-list-item>فلزات پایه</mat-list-item>
+          </a>
+          <a routerLink="/agricultural">
+              <mat-list-item>کالاهای کشاورزی</mat-list-item>
+          </a>
+        </mat-list>
+      </mat-expansion-panel>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <b>شاخص های جهانی</b>
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-divider></mat-divider>
+        <mat-list role="list">
+          <a routerLink="/asia-pacific-indecies">
+            <mat-list-item>آسیا و اقیانوسیه</mat-list-item>
+          </a>
+          <a routerLink="/europe-indecies">
+            <mat-list-item>اروپا</mat-list-item>
+          </a>
+          <a routerLink="/america-indecies">
+            <mat-list-item>آمریکا</mat-list-item>
+          </a>
+        </mat-list>
+      </mat-expansion-panel>
+
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <b>شرکت</b>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <mat-divider></mat-divider>
+            <mat-list role="list">
+              <a routerLink="/company-info">
+                <mat-list-item>اطلاعات ارتباطی شرکتها</mat-list-item>
+              </a>
+            </mat-list>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <b>گزارش کارگزاریها</b>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <mat-divider></mat-divider>
+          <mat-list role="list">
+            <a routerLink="/broker">
+            <mat-list-item>گزارش آماری سالانه</mat-list-item>
+            </a>
+          </mat-list>
+        </mat-expansion-panel>
+    </mat-accordion>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <div class="polaroid">
+        <mat-toolbar color="primary" class="navbar">
+            <button color="primary" mat-mini-fab (click)="opened = !opened"><mat-icon>menu</mat-icon></button>
+            <div class="menuTitle">
+                <span><a routerLink="/">صفحه اول</a></span>
+                <span><a routerLink="/about">درباره پرموک</a></span>
+                <span><a routerLink="/contact-us">تماس با ما</a></span>
+            </div>
+          <div class="brand"><a routerLink=''>Parmok</a></div>
+        </mat-toolbar>
+    </div>
+    <router-outlet></router-outlet>
+    <footer>
+      <span class="copy-right">1398&copy;</span>
+      <span class="author"><b>فراهم شده توسط:</b>&nbsp;محمدرضا فولادی</span>
+    </footer>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
