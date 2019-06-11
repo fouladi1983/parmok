@@ -13,6 +13,7 @@ export class PreciousMetalComponent implements OnInit {
   dataSource = [];
   page = "loading";
   showSpinner = true;
+  sometext;
 
   ngOnInit() {
     this.commoditiesService.getPreciousMetals().subscribe( data =>{
