@@ -13,7 +13,7 @@ export class BrokerReportsService {
   Ibroker: IBrokerTransaction;
 
   constructor(private _http: HttpClient) { }
-  url = "http://192.168.100.197/brokerReports";
+  url = "http://api.parmok.com/brokerReports";
 
   getBrokers(): Observable<IBroker[]>{
     return this._http.get<IBroker[]>(this.url);

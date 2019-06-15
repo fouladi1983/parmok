@@ -12,7 +12,7 @@ export class AuthService {
 
   private _token;
 
-  private url = "http://192.168.100.197/login";
+  private url = "http://api.parmok.com/login";
   private userCredential = {
     username: "test",
     password: "test",

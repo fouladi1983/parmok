@@ -13,6 +13,7 @@ import { AmericaIndeciesComponent } from './america-indecies/america-indecies.co
 import { AsiaPacificIndeciesComponent } from './asia-pacific-indecies/asia-pacific-indecies.component';
 import { EuropeIndeciesComponent } from './europe-indecies/europe-indecies.component';
 import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
+import { EnergyComponent } from './energy/energy.component';
 
 const routes: Routes = [
   {
@@ -61,6 +62,10 @@ const routes: Routes = [
   {
     path: 'europe-indecies',
     component: EuropeIndeciesComponent
+  },
+  {
+    path: 'energy',
+    component: EnergyComponent
   },
   {
     path: '404',

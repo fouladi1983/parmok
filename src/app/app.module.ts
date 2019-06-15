@@ -25,6 +25,7 @@ import { EuropeIndeciesComponent } from './europe-indecies/europe-indecies.compo
 import { AsiaPacificIndeciesComponent } from './asia-pacific-indecies/asia-pacific-indecies.component';
 import { AuthService } from './auth.service';
 import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
+import { EnergyComponent } from './energy/energy.component';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { NotFoundPageComponent } from './not-found-page/not-found-page.component
     AmericaIndeciesComponent,
     EuropeIndeciesComponent,
     AsiaPacificIndeciesComponent,
-    NotFoundPageComponent
+    NotFoundPageComponent,
+    EnergyComponent
   ],
   imports: [
     BrowserModule,

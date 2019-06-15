@@ -3,9 +3,10 @@ import { AuthService } from '../auth.service';
 import { CompanyInfoService } from '../company-info.service';
 import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
-import { map, startWith } from 'rxjs/operators'
+import { map, startWith } from 'rxjs/operators';
 import { ICommandName } from 'selenium-webdriver';
 import { ICompanies } from '../companies';
+import { Title } from '@angular/platform-browser';
 
 
 @Component({
@@ -18,7 +19,14 @@ import { ICompanies } from '../companies';
 export class CompanyInfoComponent implements OnInit {
   
 
-  constructor(private authService: AuthService, private companyInfoService: CompanyInfoService) { }
+  constructor(
+     private companyInfoService: CompanyInfoService,
+     private titleService: Title
+     ) { }
+
+  public setTitle(newTitle:string){
+    this.titleService.setTitle(newTitle);
+  }
 
   myControl = new FormControl();
   filteredCompanies: Observable<string[]>;
@@ -28,7 +36,8 @@ export class CompanyInfoComponent implements OnInit {
   comPhoneType = 'دفتر';
 
   ngOnInit() {
-    //this.authService.login().subscribe(data => localStorage.setItem('token',data['token']));
+    this.setTitle("اطلاعات ارتباطی شرکتهای بورسی")
+
     this.companyInfoService.getCompanyNames().subscribe(data=> {
       this.companies = data;
     });

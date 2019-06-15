@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { ContactService } from '../contact.service';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
+import { Title } from '@angular/platform-browser';
 
 
 @Component({
@@ -13,7 +14,15 @@ import { NgForm } from '@angular/forms';
 
 export class ContactComponent implements OnInit {
 
-  constructor(private contactService: ContactService, private router: Router) { }
+  constructor(
+    private contactService: ContactService,
+    private router: Router,
+    private titleService: Title
+    ) { }
+
+  public setTitle(newTitle: string){
+    this.titleService.setTitle(newTitle);
+  }
 
   email;
   message;
@@ -29,6 +38,7 @@ export class ContactComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.setTitle("تماس با ما");
   }
 
   onSubmit(contactForm: NgForm){

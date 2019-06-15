@@ -8,8 +8,8 @@ export class ContactService {
 
   constructor(private _http: HttpClient) { }
 
-  contactUrl = 'http://192.168.100.197/contactUs';
-  recaptchaUrl = 'http://192.168.100.197/recaptcha';
+  contactUrl = 'http://api.parmok.com/contactUs';
+  recaptchaUrl = 'http://api.parmok.com/recaptcha';
 
   verifyCaptcha(captchaToken){
     return this._http.post(this.recaptchaUrl,{

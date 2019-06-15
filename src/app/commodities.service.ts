@@ -11,10 +11,10 @@ import { share, map, shareReplay, mergeMap } from 'rxjs/operators';
 export class CommoditiesService {
 
   constructor(private _http: HttpClient) { }
-  commoditiesUrl = "http://192.168.100.197/commodities";
-  indeciesUrl = "http://192.168.100.197/indecies";
-  commoditiesBySymbolUrl = "http://192.168.100.197/commodities/getBySymbol?symbol=";
-  selectedCommodiditesUrl = "http://192.168.100.197/selectedCommodities";
+  commoditiesUrl = "http://api.parmok.com/commodities";
+  indeciesUrl = "http://api.parmok.com/indecies";
+  commoditiesBySymbolUrl = "http://api.parmok.com/commodities/getBySymbol?symbol=";
+  selectedCommodiditesUrl = "http://api.parmok.com/selectedCommodities";
   energyResponse;metalResponse;agricultureResponse;
 
   getCommodities(): Observable<ICommodities[]>{
@@ -35,6 +35,10 @@ export class CommoditiesService {
 
   getAgriculturals(): Observable<ICommoditiesPrice[]>{
     return this._http.get<ICommoditiesPrice[]>(this.commoditiesUrl+'/getAgriculturals');
+  }
+
+  getEnergy(): Observable<ICommoditiesPrice[]>{
+    return this._http.get<ICommoditiesPrice[]>(this.commoditiesUrl+'/energy');
   }
 
   getAmericaIndecies(): Observable<ICommoditiesPrice[]>{

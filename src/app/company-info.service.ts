@@ -14,9 +14,9 @@ export class CompanyInfoService {
   constructor(private _http: HttpClient, private injector: Injector) { }
   companyNames = [];
 
-  addressUrl = "http://192.168.100.197/CompanyAddressInfo";
-  phoneUrl = "http://192.168.100.197/CompanyPhoneInfo";
-  tseUrl = "http://192.168.100.197/CompanyUrlInfo";
+  addressUrl = "http://api.parmok.com/CompanyAddressInfo";
+  phoneUrl = "http://api.parmok.com/CompanyPhoneInfo";
+  tseUrl = "http://api.parmok.com/CompanyUrlInfo";
 
   getCompanyNames(): Observable<ICompanies[]>{
     return this._http.get<ICompanies[]>(this.addressUrl);

@@ -5,6 +5,7 @@ import {map,startWith} from 'rxjs/operators';
 import { BrokerReportsService } from '../broker-reports.service';
 import {IBrokerTransaction} from '../brokerTransaction';
 import { AuthService } from '../auth.service';
+import { Title } from '@angular/platform-browser';
 /*import { CombineLatestOperator } from 'rxjs/internal/observable/combineLatest';
 import { isBoolean } from 'util';
 import { AngularWaitBarrier } from 'blocking-proxy/built/lib/angular_wait_barrier';
@@ -17,7 +18,16 @@ import { Chart } from 'chart.js';*/
 })
 export class BrokerComponent implements OnInit {
 
-  constructor(private _brokerService: BrokerReportsService, private authService: AuthService) { }
+  constructor(
+    private _brokerService: BrokerReportsService,
+    private authService: AuthService,
+    private titleService: Title
+    ) { }
+
+
+  public setTitle(newTitle: string){
+    this.titleService.setTitle(newTitle)
+  }
 
   brokers = [];
   myControl = new FormControl();
@@ -26,9 +36,7 @@ export class BrokerComponent implements OnInit {
   brokerTransaction = [];
 
   ngOnInit() {
-      /*this.authService.login().subscribe(data=>{
-        localStorage.setItem('token',data['token']);
-      })*/
+      this.setTitle("آمار معاملات کارگزاری ها");
 
       this._brokerService.getBrokers().subscribe(data=> this.brokers = data);
 

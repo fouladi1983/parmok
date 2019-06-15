@@ -3,6 +3,7 @@ import { AuthService } from '../auth.service';
 import { CommoditiesService } from '../commodities.service';
 import { ICommoditiesPrice } from '../commoditiesPrice';
 import { yearsPerPage } from '@angular/material/datepicker/typings/multi-year-view';
+import { Title } from '@angular/platform-browser';
 
 export interface PeriodicElement {
   name: string;
@@ -23,7 +24,15 @@ export class HomeComponent implements OnInit {
   priceData: ICommoditiesPrice[] = [];
   displayedColumns: string[] = [ 'symbol', 'last', 'high', 'low', 'change'];
 
-  constructor(private authService: AuthService, private commoditiesService: CommoditiesService) { }
+  constructor(
+    private authService: AuthService,
+    private commoditiesService: CommoditiesService,
+    private titleServie: Title
+    ) { }
+
+    public setTitle(newTitle: string){
+      this.titleServie.setTitle(newTitle);
+    }
 
   energyDataSource = [];
   metalDataSource = [];
@@ -34,6 +43,7 @@ export class HomeComponent implements OnInit {
 
 
   ngOnInit() {
+    this.setTitle("پرموک، فراهم آورنده قیمتهای کالایی جهانی، شاخصهای جهانی،اطلاعات ارتباطی شرکتهای بورسی، آمار معاملات کارگزاریها و ...");
     //get latest commodities prices
     this.commoditiesService.getCommoditiesPrices().subscribe(singleData=>{
       this.commoditiesService.getSelectedEnergy().subscribe(energy=>{
