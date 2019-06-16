@@ -8,6 +8,8 @@ import { Title } from '@angular/platform-browser';
 })
 export class AppComponent implements OnInit{
 
+  opened = false;
+
   constructor(private titleService: Title){}
 
   public setTitle(newTitle: string){
